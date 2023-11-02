@@ -37,7 +37,7 @@ load("@org_tensorflow//tensorflow:workspace0.bzl", "tf_workspace0")
 tf_workspace0()
 
 load("@coral_crosstool//:configure.bzl", "cc_crosstool")
-cc_crosstool(name = "crosstool", cpp_version = "c++14")
+cc_crosstool(name = "crosstool", cpp_version = "c++17")
 
 http_archive(
     name = "com_google_glog",
@@ -53,6 +53,19 @@ load(':bazel/glog.bzl', 'glog_library')
 glog_library(with_gflags=0)
 """,
 )
+
+http_archive(
+  name = "pybind11_bazel",
+  strip_prefix = "pybind11_bazel-9a24c33cbdc510fa60ab7f5ffb7d80ab89272799",
+  urls = ["https://github.com/pybind/pybind11_bazel/archive/9a24c33cbdc510fa60ab7f5ffb7d80ab89272799.zip"],
+)
+http_archive(
+  name = "pybind11",
+  build_file = "@pybind11_bazel//:pybind11.BUILD",
+  strip_prefix = "pybind11-2.10.0",
+  urls = ["https://github.com/pybind/pybind11/archive/refs/tags/v2.10.0.zip"],
+)
+load("@pybind11_bazel//:python_configure.bzl", "python_configure")
 
 local_repository(
     name = "libcoral",

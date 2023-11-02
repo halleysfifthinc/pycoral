@@ -3,7 +3,7 @@ Maintainer: Coral <coral-support@google.com>
 Section: python
 Priority: optional
 Build-Depends: dh-python, python3-setuptools, python3-all, debhelper (>= 9)
-Standards-Version: 3.9.6
+Standards-Version: 3.11.0
 Homepage: https://coral.ai/
 
 Package: pycoral-examples
@@ -21,7 +21,7 @@ Depends: libc6,
          libstdc++6,
          python3-numpy,
          python3-pil,
-         python3-tflite-runtime (= 2.5.0.post1),
+         python3-tflite-runtime (= 2.13.0),
          ${misc:Depends},
          ${python3:Depends}
 Description: Coral Python API
