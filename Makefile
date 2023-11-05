@@ -96,7 +96,7 @@ CORAL_WRAPPER_OUT_DIR  := $(MAKEFILE_DIR)/pycoral/pybind
 TFLITE_WRAPPER_OUT_DIR := $(MAKEFILE_DIR)/tflite_runtime
 
 TENSORFLOW_DIR = $(shell bazel info output_base)/external/org_tensorflow/
-TENSORFLOW_VERSION_SUFFIX := .post1
+TENSORFLOW_VERSION_SUFFIX := ""
 TENSORFLOW_VERSION = $(shell bazel aquery $(TFLITE_BAZEL_BUILD_FLAGS) $(TFLITE_WRAPPER_TARGET) >> /dev/null && \
                        grep "_VERSION = " "${TENSORFLOW_DIR}/tensorflow/tools/pip_package/setup.py" | cut -d= -f2 | sed "s/[ '-]//g")$(TENSORFLOW_VERSION_SUFFIX)
 TENSORFLOW_COMMIT = $(shell bazel query "@libedgetpu_properties//..." | grep tensorflow_commit | cut -d\# -f2)
