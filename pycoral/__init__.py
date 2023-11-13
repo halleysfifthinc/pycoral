@@ -14,4 +14,4 @@
 # limitations under the License.
 """Version information for Coral Python APIs."""
 
-__version__ = "2.12.0"
+__version__ = "2.11.0"
